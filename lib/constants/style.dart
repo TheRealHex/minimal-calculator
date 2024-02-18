@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
 
-TextStyle outputTextStyle = const TextStyle(
-  fontSize: 48,
-  fontWeight: FontWeight.bold,
-);
+TextStyle outputTextStyle(BuildContext context) {
+  return Theme.of(context).textTheme.headlineMedium!.copyWith(
+        fontSize: 48,
+        fontWeight: FontWeight.bold,
+        color: Theme.of(context).colorScheme.primary,
+      );
+}
 
-TextStyle inputTextStyle = const TextStyle(
-  fontSize: 20,
-  fontWeight: FontWeight.bold,
-);
+TextStyle inputTextStyle(BuildContext context) {
+  return Theme.of(context).textTheme.bodyMedium!.copyWith(
+        fontSize: 20,
+        fontWeight: FontWeight.bold,
+        color: Theme.of(context).colorScheme.primary,
+      );
+}
 
 ThemeData lightTheme = ThemeData(
   brightness: Brightness.light,

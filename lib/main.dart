@@ -7,8 +7,8 @@ void main() {
   runApp(const Main());
 }
 
-bool isDark = false;
-ThemeData activeTheme = lightTheme;
+bool isDark = true;
+ThemeData activeTheme = darkTheme;
 
 class Main extends StatefulWidget {
   const Main({super.key});

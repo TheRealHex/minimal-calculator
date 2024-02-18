@@ -22,7 +22,10 @@ class _HomeState extends State<Home> {
         actions: [
           IconButton(
             onPressed: widget.toggleTheme,
-            icon: const Icon(Icons.dark_mode),
+            icon: Icon(
+              Icons.dark_mode,
+              color: Theme.of(context).colorScheme.primary,
+            ),
           )
         ],
       ),
@@ -41,7 +44,7 @@ class _HomeState extends State<Home> {
                   child: Text(
                     // display 0 if no-input else user-input
                     '$num1$operand$num2'.isEmpty ? '0' : '$num1$operand$num2',
-                    style: outputTextStyle,
+                    style: outputTextStyle(context),
                     textAlign: TextAlign.end,
                   ),
                 ),
@@ -195,7 +198,7 @@ class _HomeState extends State<Home> {
         onPressed: () => onBtnTap(value),
         child: Text(
           value,
-          style: inputTextStyle,
+          style: inputTextStyle(context),
         ),
       ),
     );
