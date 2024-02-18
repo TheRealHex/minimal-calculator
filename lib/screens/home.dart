@@ -60,7 +60,36 @@ class _HomeState extends State<Home> {
     );
   }
 
-// void calculate() {}
+//#### functions
+  void calculate() {
+    if (num1.isEmpty || operand.isEmpty || num2.isEmpty) return;
+
+    double numA = double.parse(num1);
+    double numB = double.parse(num2);
+    var result = 0.0;
+
+    switch (operand) {
+      case Btn.add:
+        result = numA + numB;
+        break;
+      case Btn.mul:
+        result = numA * numB;
+        break;
+      case Btn.sub:
+        result = numA - numB;
+        break;
+      case Btn.div:
+        result = numA / numB;
+        break;
+      default:
+    }
+    setState(() {
+      num2 = '';
+      operand = '';
+      num1 = result.toString();
+    });
+  }
+
   void percentage() {
     if (num1.isNotEmpty && operand.isEmpty && num2.isNotEmpty) {
       // TODO calc percentage
@@ -95,7 +124,6 @@ class _HomeState extends State<Home> {
     });
   }
 
-//#### functions
   void appendValue(String value) {
     // If value is only operand & not dot
     if (value != Btn.dot && int.tryParse(value) == null) {
@@ -138,6 +166,10 @@ class _HomeState extends State<Home> {
     }
     if (value == Btn.per) {
       percentage();
+      return;
+    }
+    if (value == Btn.calc) {
+      calculate();
       return;
     }
     appendValue(value); // to append input at the end
