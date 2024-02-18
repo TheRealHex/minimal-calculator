@@ -86,7 +86,7 @@ class _HomeState extends State<Home> {
     setState(() {
       num2 = '';
       operand = '';
-      num1 = result.toString();
+      num1 = result.toStringAsFixed(2);
     });
   }
 
@@ -101,7 +101,7 @@ class _HomeState extends State<Home> {
     final numA = double.parse(num1);
     setState(() {
       num1 = "${(numA / 100)}";
-      operand = '';
+      operand = 'x';
       num2 = '';
     });
   }
