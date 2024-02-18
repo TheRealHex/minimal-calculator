@@ -61,9 +61,39 @@ class _HomeState extends State<Home> {
   }
 
 // void calculate() {}
-// void percentage() {}
-// void delete() {}
-// void clear() {}
+  void percentage() {
+    if (num1.isNotEmpty && operand.isEmpty && num2.isNotEmpty) {
+      // TODO calc percentage
+      // final res = num1 operand num2;
+      // num1 = res;
+      // debugPrint('percent');
+    }
+    if (operand.isNotEmpty) return;
+    final numA = double.parse(num1);
+    setState(() {
+      num1 = "${(numA / 100)}";
+      operand = '';
+      num2 = '';
+    });
+  }
+
+  void delete() {
+    if (num2.isNotEmpty) {
+      num2 = num2.substring(0, num2.length - 1);
+    }
+    if (num1.isNotEmpty) {
+      num1 = num1.substring(0, num1.length - 1);
+    }
+    setState(() {});
+  }
+
+  void clear() {
+    setState(() {
+      num1 = '';
+      operand = '';
+      num2 = '';
+    });
+  }
 
 //#### functions
   void appendValue(String value) {
@@ -97,6 +127,19 @@ class _HomeState extends State<Home> {
 
   // on button press
   void onBtnTap(String value) {
+    if (num1.isEmpty && value == Btn.per) return;
+    if (value == Btn.del) {
+      delete();
+      return;
+    }
+    if (value == Btn.clr) {
+      clear();
+      return;
+    }
+    if (value == Btn.per) {
+      percentage();
+      return;
+    }
     appendValue(value); // to append input at the end
   }
 
