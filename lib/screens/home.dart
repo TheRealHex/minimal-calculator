@@ -4,7 +4,8 @@ import 'package:minimal_calculator/constants/btn_values.dart';
 import '../constants/style.dart';
 
 class Home extends StatefulWidget {
-  const Home({super.key});
+  final VoidCallback toggleTheme;
+  const Home({super.key, required this.toggleTheme});
 
   @override
   State<Home> createState() => _HomeState();
@@ -16,7 +17,15 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.background,
+        actions: [
+          IconButton(
+            onPressed: widget.toggleTheme,
+            icon: const Icon(Icons.dark_mode),
+          )
+        ],
+      ),
       body: SafeArea(
         bottom: false,
         child: Column(
@@ -93,9 +102,6 @@ class _HomeState extends State<Home> {
   void percentage() {
     if (num1.isNotEmpty && operand.isEmpty && num2.isNotEmpty) {
       // TODO calc percentage
-      // final res = num1 operand num2;
-      // num1 = res;
-      // debugPrint('percent');
     }
     if (operand.isNotEmpty) return;
     final numA = double.parse(num1);
