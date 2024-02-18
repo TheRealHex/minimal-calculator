@@ -196,9 +196,11 @@ class _HomeState extends State<Home> {
                     ? Colors.red
                     : null),
         onPressed: () => onBtnTap(value),
-        child: Text(
-          value,
-          style: inputTextStyle(context),
+        child: Center(
+          child: Text(
+            value,
+            style: inputTextStyle(context),
+          ),
         ),
       ),
     );

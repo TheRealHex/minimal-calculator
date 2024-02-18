@@ -10,7 +10,7 @@ TextStyle outputTextStyle(BuildContext context) {
 
 TextStyle inputTextStyle(BuildContext context) {
   return Theme.of(context).textTheme.bodyMedium!.copyWith(
-        fontSize: 20,
+        fontSize: 14,
         fontWeight: FontWeight.bold,
         color: Theme.of(context).colorScheme.primary,
       );
