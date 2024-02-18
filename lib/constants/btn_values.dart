@@ -1,6 +1,6 @@
 class Btn {
-  static const String del = '⌫';
-  static const String clr = 'C';
+  static const String del = 'C';
+  static const String clr = 'AC';
   static const String per = '%';
   static const String mul = 'x';
   static const String div = '÷';
